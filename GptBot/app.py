@@ -4,7 +4,7 @@ import docx
 import openai
 
 
-openai.api_key = ${{ secrets.gptkey }}
+openai.api_key = st.secrets["openai"]["openkey"]
 
 def limit_words(text, word_limit=1000):
     words = text.split()
