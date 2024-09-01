@@ -36,7 +36,7 @@ def get_answer_from_gpt(question,type, document_text, max_response_tokens=1000):
     return response
 
 st.title("📄 Document Q&A AI Chatbot")
-st.image("images.png")
+#st.image("images.png")
 st.write("""
     Upload a PDF or DOCX file and ask questions about its content.
     The chatbot will help you find answers based on the document. (Try to keep the document under 1000 words, else will be trimmed)
