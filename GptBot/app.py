@@ -62,19 +62,20 @@ if uploaded_file:
 
         passcode= st.text_input("Please enter the passcode:")
 
-        if passcode== st.secrets["passcode"]["key"] :
-            if st.button("Get Answer"):
-                if user_question:
-                    with st.spinner("Generating answer..."):
-                        answer = get_answer_from_gpt(user_question,doc_type, document_text)
-                        st.write("### Answer:")
-                        st.write(answer)
+        with st.spinner("Validating passcode.."):
+            if passcode == st.secrets["passcode"]["key"] :
+                if st.button("Get Answer"):
+                    if user_question:
+                        with st.spinner("Generating answer..."):
+                            answer = get_answer_from_gpt(user_question,doc_type, document_text)
+                            st.write("### Answer:")
+                            st.write(answer)
+                    else:
+                        st.error("Please enter a question.")
                 else:
-                    st.error("Please enter a question.")
+                    st.info("Please upload a PDF or DOCX file to get started.")
             else:
-                st.info("Please upload a PDF or DOCX file to get started.")
-        else:
-            st.error("Please enter correct passcode.")
+                st.error("Please enter correct passcode.")
 st.markdown("""
     ---
     **Note:** This application is designed for small documents (under 1,000 words) and generates concise answers using OpenAI's GPT API.
