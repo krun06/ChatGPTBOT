@@ -75,7 +75,7 @@ if uploaded_file:
             else:
                 st.info("Please upload a PDF or DOCX file to get started.")
         else:
-        st.error("Please enter correct passcode.")
+            st.error("Please enter correct passcode.")
 st.markdown("""
     ---
     **Note:** This application is designed for small documents (under 1,000 words) and generates concise answers using OpenAI's GPT API.
