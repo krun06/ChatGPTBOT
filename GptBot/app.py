@@ -5,7 +5,6 @@ import openai
 
 
 openai.api_key = st.secrets["openai"]["openkey"]
-
 def limit_words(text, word_limit=1000):
     words = text.split()
     return " ".join(words[:word_limit]) if len(words) > word_limit else text
