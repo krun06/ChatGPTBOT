@@ -35,7 +35,7 @@ def get_answer_from_gpt(question,type, document_text, max_response_tokens=1000):
     response=chat_response.choices[0].message.content
     return response
 
-st.title("📄 Document Q&A Chatbot")
+st.title("📄 Document Q&A AI Chatbot")
 st.write("""
     Upload a PDF or DOCX file and ask questions about its content.
     The chatbot will help you find answers based on the document. (Try to keep the document under 1000 words, else will be trimmed)
@@ -63,7 +63,7 @@ if uploaded_file:
         passcode= st.text_input("Please enter the passcode:")
 
         with st.spinner("Validating passcode.."):
-            if passcode == st.secrets["passcode"]["key"] :
+            if passcode == st.secrets["passcode"]["key"]:
                 if st.button("Get Answer"):
                     if user_question:
                         with st.spinner("Generating answer..."):
